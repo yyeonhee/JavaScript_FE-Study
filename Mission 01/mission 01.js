@@ -1,3 +1,5 @@
+'use static';
+
 // DarkMode 구현
 function DarkMode() {
     var body = document.body;
