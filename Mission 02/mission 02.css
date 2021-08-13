@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "IM_Hyemin-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Regular.woff2")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "IM_Hyemin-Regular";
+}
+
+.main {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+}
+.todolist {
+  background-color: white;
+  margin-top: 20px;
+  padding: 10px 40px 10px 0px;
+  box-shadow: 3px 3px 3px 3px #e4e4e4;
+}
+
+.delete {
+  position: absolute;
+  right: 37%;
+  font-size: 20px;
+  background-color: #cff0cc;
+  border-radius: 40px;
+  text-align: center;
+  padding: 0% 1%;
+  color: black;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  font-size: 20px;
+}
+a {
+  float: right;
+  text-align: right;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+input[type="text"] {
+  width: 385px;
+  height: 30px;
+  outline: 0;
+  border: none;
+  font-size: 23px;
+  background: white;
+  margin-right: 10px;
+  padding: 5px;
+}
+button {
+  width: 85px;
+  height: 40px;
+  font-size: 1.5em;
+  background-color: #cff0cc;
+  border-radius: 4px;
+  outline: 0;
+  border: none;
+}
