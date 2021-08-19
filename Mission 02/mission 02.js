@@ -1,44 +1,63 @@
 'use static';
 
 const init = () => {
-    document.querySelector('form').addEventListener('submit', AddToDo);
-    document.getElementById('delete').addEventListener('click', DeleteToDoText);
-    document.querySelector('ul').addEventListener('click', DelteToDo);
+    document.querySelector('form').addEventListener('submit', addToDo);
+    document.getElementById('delete').addEventListener('click', deleteToDoText);
+    document.querySelector('ul').addEventListener('click', delteToDo);
 };
 
+const mainDiv = document.getElementsByClassName('todolist');
+
 //생성 기능
-const AddToDo = (e) => {
+const addToDo = (e) => {
     e.preventDefault();
     //사용자가 입력하는 TO DO Value
     let toDoValue = document.querySelector('input');
-    if(toDoValue.value !== '')
-    //LIST에 넣어주기
-        AddToDoList(toDoValue.value);
+    if(toDoValue.value !== '') {
+        //LIST에 넣어주기
+        addToDoList(toDoValue.value);
         toDoValue.value = ''; 
+        //SCROLL 고정
+        mainDiv.scrollTop = mainDiv.scrollHeight;
+    }
 };
 
-const AddToDoList = (value) => {
+//시간 출력
+const dgt = (base) => {
+    //한 자리수인 경우, 0도 함께 출력
+    return (base > 9 ? base : `0${base}`)
+};
+
+const addToDoList = (value) => {
     let ul = document.querySelector('ul');
     let li = document.createElement('li');
-        //checkbox, value, delete 
-    li.innerHTML = `<span class="delete">DEL</span><input type="checkbox"><label>${value}</label>`;
+
+    //Date 객체 사용
+    const date = new Date();
+    const minutes = date.getMinutes();
+    const hours = date.getHours();
+    const seconds = date.getSeconds();
+
+    //checkbox, value, delete 
+    li.innerHTML = `<span class="delete">DEL</span><input type="checkbox"><label>${value}
+    <span class="time">${dgt(hours)}:${dgt(minutes)}:${dgt(seconds)}</span></label>`;
+
     ul.appendChild(li);
     document.querySelector('.todolist').style.display = 'block';
 };
 
-
 //삭제 기능
-const DelteToDo = (e) => {
+const delteToDo = (e) => {
     if(e.target.className == 'delete')  
     //Delete All 실행
-    DeleteAllToDo(e);
+    deleteAllToDo(e);
     else {
         //글씨에 밑줄 표시
-        CompleteToDo(e); 
+        completeToDo(e); 
     }
 };
 
-const DeleteAllToDo = (e) => {
+const deleteAllToDo = (e) => {
     //Delete All 기능
     let remove = e.target.parentNode;
     let parentNode = remove.parentNode;
@@ -46,13 +65,13 @@ const DeleteAllToDo = (e) => {
     parentNode.removeChild(remove);
 };
 
-const DeleteToDoText = (e) => {
+const deleteToDoText = (e) => {
     //Del 기능
     let ul = document.querySelector('ul').innerHTML = '';
 };
 
 //완료 기능
-const CompleteToDo = (e) => {
+const completeToDo = (e) => {
     const todo = e.target.nextSibling;
     //체크박스에 체크를 하면,
     if(e.target.checked){
