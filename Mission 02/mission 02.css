@@ -37,6 +37,12 @@
   cursor: pointer;
 }
 
+.time {
+  font-size: 13px;
+  margin-left: 2%;
+  border-radius: 5px;
+}
+
 ul {
   list-style: none;
 }
@@ -81,10 +87,4 @@ button {
   border-radius: 4px;
   outline: 0;
   border: none;
-}
-
-.time {
-  font-size: 13px;
-  margin-left: 2%;
-  border-radius: 5px;
 }

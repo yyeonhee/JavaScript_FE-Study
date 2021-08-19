@@ -6,7 +6,7 @@ const init = () => {
     document.querySelector('ul').addEventListener('click', delteToDo);
 };
 
-const mainDiv = document.getElementsByClassName('todolist');
+const todoList = document.getElementsByClassName('todolist');
 
 //생성 기능
 const addToDo = (e) => {
@@ -16,9 +16,9 @@ const addToDo = (e) => {
     if(toDoValue.value !== '') {
         //LIST에 넣어주기
         addToDoList(toDoValue.value);
-        toDoValue.value = ''; 
         //SCROLL 고정
-        mainDiv.scrollTop = mainDiv.scrollHeight;
+        todoList.scrollTop = todoList.scrollHeight;
+        toDoValue.value = ''; 
     }
 };
 
